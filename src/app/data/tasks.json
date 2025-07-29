@@ -1,0 +1,618 @@
+[
+  {
+    "id": "task-1",
+    "projectId": "proj-1",
+    "title": "Redesign login page UI",
+    "description": "Create modern, responsive login interface with improved UX",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-6",
+    "createdById": "user-1",
+    "createdAt": "2024-03-20T10:15:00Z",
+    "dueDate": "2024-04-15T23:59:59Z",
+    "estimatedHours": 16,
+    "actualHours": 18,
+    "dependsOn": [],
+    "labels": [
+      "frontend",
+      "ui",
+      "design"
+    ]
+  },
+  {
+    "id": "task-2",
+    "projectId": "proj-1",
+    "title": "Implement user authentication API",
+    "description": "Backend API endpoints for secure user login and session management",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-2",
+    "createdById": "user-1",
+    "createdAt": "2024-03-18T09:30:00Z",
+    "dueDate": "2024-04-10T23:59:59Z",
+    "estimatedHours": 24,
+    "actualHours": 28,
+    "dependsOn": [],
+    "labels": [
+      "backend",
+      "api",
+      "security"
+    ]
+  },
+  {
+    "id": "task-3",
+    "projectId": "proj-1",
+    "title": "Dashboard performance optimization",
+    "description": "Optimize dashboard loading times and implement caching",
+    "status": "in-progress",
+    "priority": "medium",
+    "assigneeId": "user-4",
+    "createdById": "user-1",
+    "createdAt": "2024-05-10T14:20:00Z",
+    "dueDate": "2024-08-15T23:59:59Z",
+    "estimatedHours": 32,
+    "actualHours": 20,
+    "dependsOn": [
+      "task-1",
+      "task-2"
+    ],
+    "labels": [
+      "performance",
+      "optimization",
+      "frontend"
+    ]
+  },
+  {
+    "id": "task-4",
+    "projectId": "proj-1",
+    "title": "Customer data migration",
+    "description": "Migrate existing customer data to new portal structure",
+    "status": "review",
+    "priority": "high",
+    "assigneeId": "user-8",
+    "createdById": "user-1",
+    "createdAt": "2024-06-05T11:45:00Z",
+    "dueDate": "2024-07-30T23:59:59Z",
+    "estimatedHours": 40,
+    "actualHours": 42,
+    "dependsOn": [
+      "task-2"
+    ],
+    "labels": [
+      "migration",
+      "database",
+      "backend"
+    ]
+  },
+  {
+    "id": "task-5",
+    "projectId": "proj-1",
+    "title": "Mobile responsive testing",
+    "description": "Test portal functionality across different mobile devices",
+    "status": "todo",
+    "priority": "medium",
+    "assigneeId": "user-6",
+    "createdById": "user-1",
+    "createdAt": "2024-07-01T13:30:00Z",
+    "estimatedHours": 12,
+    "dependsOn": [
+      "task-3"
+    ],
+    "labels": [
+      "testing",
+      "mobile",
+      "qa"
+    ]
+  },
+  {
+    "id": "task-6",
+    "projectId": "proj-2",
+    "title": "iOS app store submission",
+    "description": "Prepare and submit iOS app for App Store review",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-6",
+    "createdById": "user-7",
+    "createdAt": "2024-05-20T16:00:00Z",
+    "dueDate": "2024-06-10T23:59:59Z",
+    "estimatedHours": 8,
+    "actualHours": 12,
+    "dependsOn": [],
+    "labels": [
+      "mobile",
+      "ios",
+      "deployment"
+    ]
+  },
+  {
+    "id": "task-7",
+    "projectId": "proj-2",
+    "title": "Android app optimization",
+    "description": "Final performance optimization for Android release",
+    "status": "done",
+    "priority": "medium",
+    "assigneeId": "user-10",
+    "createdById": "user-7",
+    "createdAt": "2024-05-15T10:30:00Z",
+    "dueDate": "2024-06-05T23:59:59Z",
+    "estimatedHours": 20,
+    "actualHours": 18,
+    "dependsOn": [],
+    "labels": [
+      "mobile",
+      "android",
+      "performance"
+    ]
+  },
+  {
+    "id": "task-8",
+    "projectId": "proj-2",
+    "title": "Security audit completion",
+    "description": "Complete final security audit and address findings",
+    "status": "done",
+    "priority": "urgent",
+    "assigneeId": "user-12",
+    "createdById": "user-7",
+    "createdAt": "2024-04-30T09:15:00Z",
+    "dueDate": "2024-05-30T23:59:59Z",
+    "estimatedHours": 35,
+    "actualHours": 38,
+    "dependsOn": [],
+    "labels": [
+      "security",
+      "audit",
+      "compliance"
+    ]
+  },
+  {
+    "id": "task-9",
+    "projectId": "proj-3",
+    "title": "Database schema design",
+    "description": "Design analytics database schema for performance metrics",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-2",
+    "createdById": "user-1",
+    "createdAt": "2024-05-25T08:45:00Z",
+    "dueDate": "2024-06-15T23:59:59Z",
+    "estimatedHours": 16,
+    "actualHours": 14,
+    "dependsOn": [],
+    "labels": [
+      "database",
+      "design",
+      "backend"
+    ]
+  },
+  {
+    "id": "task-10",
+    "projectId": "proj-3",
+    "title": "Real-time data visualization",
+    "description": "Implement charts and graphs for real-time metrics display",
+    "status": "in-progress",
+    "priority": "medium",
+    "assigneeId": "user-8",
+    "createdById": "user-1",
+    "createdAt": "2024-06-10T12:20:00Z",
+    "dueDate": "2024-08-30T23:59:59Z",
+    "estimatedHours": 28,
+    "actualHours": 15,
+    "dependsOn": [
+      "task-9"
+    ],
+    "labels": [
+      "frontend",
+      "visualization",
+      "charts"
+    ]
+  },
+  {
+    "id": "task-11",
+    "projectId": "proj-3",
+    "title": "API integration testing",
+    "description": "Test integration with various internal APIs",
+    "status": "todo",
+    "priority": "medium",
+    "createdById": "user-1",
+    "createdAt": "2024-07-15T15:30:00Z",
+    "estimatedHours": 20,
+    "dependsOn": [
+      "task-10"
+    ],
+    "labels": [
+      "testing",
+      "api",
+      "integration"
+    ]
+  },
+  {
+    "id": "task-12",
+    "projectId": "proj-4",
+    "title": "Microservices architecture planning",
+    "description": "Plan and document microservices architecture design",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-10",
+    "createdById": "user-7",
+    "createdAt": "2024-01-15T11:00:00Z",
+    "dueDate": "2024-02-15T23:59:59Z",
+    "estimatedHours": 30,
+    "actualHours": 35,
+    "dependsOn": [],
+    "labels": [
+      "architecture",
+      "planning",
+      "documentation"
+    ]
+  },
+  {
+    "id": "task-13",
+    "projectId": "proj-4",
+    "title": "Legacy data analysis",
+    "description": "Analyze existing data structures for migration planning",
+    "status": "done",
+    "priority": "medium",
+    "assigneeId": "user-4",
+    "createdById": "user-7",
+    "createdAt": "2024-01-20T09:30:00Z",
+    "dueDate": "2024-03-01T23:59:59Z",
+    "estimatedHours": 25,
+    "actualHours": 22,
+    "dependsOn": [],
+    "labels": [
+      "analysis",
+      "migration",
+      "database"
+    ]
+  },
+  {
+    "id": "task-14",
+    "projectId": "proj-4",
+    "title": "Service containerization",
+    "description": "Containerize services using Docker for cloud deployment",
+    "status": "review",
+    "priority": "medium",
+    "assigneeId": "user-12",
+    "createdById": "user-7",
+    "createdAt": "2024-03-10T14:15:00Z",
+    "estimatedHours": 40,
+    "actualHours": 45,
+    "dependsOn": [
+      "task-12"
+    ],
+    "labels": [
+      "docker",
+      "containerization",
+      "devops"
+    ]
+  },
+  {
+    "id": "task-15",
+    "projectId": "proj-5",
+    "title": "Barcode scanning feature",
+    "description": "Implement barcode scanning for inventory tracking",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-4",
+    "createdById": "user-1",
+    "createdAt": "2023-12-01T10:20:00Z",
+    "dueDate": "2024-01-15T23:59:59Z",
+    "estimatedHours": 22,
+    "actualHours": 26,
+    "dependsOn": [],
+    "labels": [
+      "feature",
+      "scanning",
+      "hardware"
+    ]
+  },
+  {
+    "id": "task-16",
+    "projectId": "proj-5",
+    "title": "Inventory reporting dashboard",
+    "description": "Create comprehensive reporting dashboard for inventory metrics",
+    "status": "done",
+    "priority": "medium",
+    "assigneeId": "user-8",
+    "createdById": "user-1",
+    "createdAt": "2024-01-10T13:45:00Z",
+    "dueDate": "2024-03-30T23:59:59Z",
+    "estimatedHours": 30,
+    "actualHours": 28,
+    "dependsOn": [
+      "task-15"
+    ],
+    "labels": [
+      "dashboard",
+      "reporting",
+      "frontend"
+    ]
+  },
+  {
+    "id": "task-17",
+    "projectId": "proj-5",
+    "title": "Multi-location support",
+    "description": "Add support for managing inventory across multiple warehouses",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-2",
+    "createdById": "user-1",
+    "createdAt": "2024-02-15T11:30:00Z",
+    "dueDate": "2024-04-30T23:59:59Z",
+    "estimatedHours": 35,
+    "actualHours": 32,
+    "dependsOn": [
+      "task-16"
+    ],
+    "labels": [
+      "feature",
+      "multi-tenant",
+      "backend"
+    ]
+  },
+  {
+    "id": "task-18",
+    "projectId": "proj-6",
+    "title": "Facebook API integration",
+    "description": "Implement Facebook Graph API integration for social posting",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-6",
+    "createdById": "user-7",
+    "createdAt": "2024-04-15T09:00:00Z",
+    "dueDate": "2024-06-01T23:59:59Z",
+    "estimatedHours": 20,
+    "actualHours": 24,
+    "dependsOn": [],
+    "labels": [
+      "api",
+      "integration",
+      "social"
+    ]
+  },
+  {
+    "id": "task-19",
+    "projectId": "proj-6",
+    "title": "Twitter API implementation",
+    "description": "Add Twitter API support for tweet posting and analytics",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-10",
+    "createdById": "user-7",
+    "createdAt": "2024-05-01T10:30:00Z",
+    "dueDate": "2024-07-15T23:59:59Z",
+    "estimatedHours": 18,
+    "actualHours": 22,
+    "dependsOn": [],
+    "labels": [
+      "api",
+      "integration",
+      "social"
+    ]
+  },
+  {
+    "id": "task-20",
+    "projectId": "proj-6",
+    "title": "Rate limiting implementation",
+    "description": "Implement rate limiting for all social media API calls",
+    "status": "in-progress",
+    "priority": "medium",
+    "assigneeId": "user-6",
+    "createdById": "user-7",
+    "createdAt": "2024-06-20T14:45:00Z",
+    "dueDate": "2024-09-15T23:59:59Z",
+    "estimatedHours": 15,
+    "actualHours": 8,
+    "dependsOn": [
+      "task-18",
+      "task-19"
+    ],
+    "labels": [
+      "backend",
+      "rate-limiting",
+      "api"
+    ]
+  },
+  {
+    "id": "task-21",
+    "projectId": "proj-6",
+    "title": "Instagram integration",
+    "description": "Add Instagram Business API integration",
+    "status": "todo",
+    "priority": "medium",
+    "assigneeId": "user-10",
+    "createdById": "user-7",
+    "createdAt": "2024-07-10T11:15:00Z",
+    "estimatedHours": 25,
+    "dependsOn": [
+      "task-20"
+    ],
+    "labels": [
+      "api",
+      "integration",
+      "social"
+    ]
+  },
+  {
+    "id": "task-22",
+    "projectId": "proj-7",
+    "title": "Employee profile management",
+    "description": "Create screens for viewing and editing employee profiles",
+    "status": "in-progress",
+    "priority": "high",
+    "assigneeId": "user-12",
+    "createdById": "user-1",
+    "createdAt": "2024-06-05T12:30:00Z",
+    "estimatedHours": 28,
+    "actualHours": 18,
+    "dependsOn": [],
+    "labels": [
+      "mobile",
+      "ui",
+      "profiles"
+    ]
+  },
+  {
+    "id": "task-23",
+    "projectId": "proj-7",
+    "title": "Leave request workflow",
+    "description": "Implement leave request submission and approval workflow",
+    "status": "todo",
+    "priority": "high",
+    "assigneeId": "user-8",
+    "createdById": "user-1",
+    "createdAt": "2024-06-15T09:45:00Z",
+    "estimatedHours": 32,
+    "dependsOn": [
+      "task-22"
+    ],
+    "labels": [
+      "workflow",
+      "mobile",
+      "hr"
+    ]
+  },
+  {
+    "id": "task-24",
+    "projectId": "proj-7",
+    "title": "Push notifications setup",
+    "description": "Configure push notifications for HR updates and reminders",
+    "status": "todo",
+    "priority": "medium",
+    "createdById": "user-1",
+    "createdAt": "2024-07-01T15:20:00Z",
+    "estimatedHours": 16,
+    "dependsOn": [],
+    "labels": [
+      "mobile",
+      "notifications",
+      "setup"
+    ]
+  },
+  {
+    "id": "task-25",
+    "projectId": "proj-8",
+    "title": "Cloud infrastructure setup",
+    "description": "Set up AWS infrastructure for modernized systems",
+    "status": "done",
+    "priority": "urgent",
+    "assigneeId": "user-2",
+    "createdById": "user-7",
+    "createdAt": "2023-12-20T08:30:00Z",
+    "dueDate": "2024-02-01T23:59:59Z",
+    "estimatedHours": 45,
+    "actualHours": 50,
+    "dependsOn": [],
+    "labels": [
+      "infrastructure",
+      "aws",
+      "cloud"
+    ]
+  },
+  {
+    "id": "task-26",
+    "projectId": "proj-8",
+    "title": "Legacy system analysis",
+    "description": "Analyze existing legacy systems for modernization requirements",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-6",
+    "createdById": "user-7",
+    "createdAt": "2024-01-05T11:15:00Z",
+    "dueDate": "2024-03-15T23:59:59Z",
+    "estimatedHours": 40,
+    "actualHours": 42,
+    "dependsOn": [],
+    "labels": [
+      "analysis",
+      "legacy",
+      "documentation"
+    ]
+  },
+  {
+    "id": "task-27",
+    "projectId": "proj-8",
+    "title": "API modernization phase 1",
+    "description": "Modernize critical APIs using cloud-native patterns",
+    "status": "review",
+    "priority": "high",
+    "assigneeId": "user-10",
+    "createdById": "user-7",
+    "createdAt": "2024-02-20T10:00:00Z",
+    "estimatedHours": 60,
+    "actualHours": 55,
+    "dependsOn": [
+      "task-25",
+      "task-26"
+    ],
+    "labels": [
+      "api",
+      "modernization",
+      "cloud"
+    ]
+  },
+  {
+    "id": "task-28",
+    "projectId": "proj-9",
+    "title": "Feedback form design",
+    "description": "Design responsive feedback forms with various question types",
+    "status": "done",
+    "priority": "high",
+    "assigneeId": "user-4",
+    "createdById": "user-1",
+    "createdAt": "2024-02-01T13:20:00Z",
+    "dueDate": "2024-03-15T23:59:59Z",
+    "estimatedHours": 20,
+    "actualHours": 18,
+    "dependsOn": [],
+    "labels": [
+      "frontend",
+      "forms",
+      "ui"
+    ]
+  },
+  {
+    "id": "task-29",
+    "projectId": "proj-9",
+    "title": "Analytics dashboard",
+    "description": "Create dashboard for visualizing customer feedback trends",
+    "status": "done",
+    "priority": "medium",
+    "assigneeId": "user-8",
+    "createdById": "user-1",
+    "createdAt": "2024-03-20T09:30:00Z",
+    "dueDate": "2024-05-30T23:59:59Z",
+    "estimatedHours": 35,
+    "actualHours": 32,
+    "dependsOn": [
+      "task-28"
+    ],
+    "labels": [
+      "dashboard",
+      "analytics",
+      "visualization"
+    ]
+  },
+  {
+    "id": "task-30",
+    "projectId": "proj-9",
+    "title": "Email notification system",
+    "description": "Implement automated email notifications for feedback responses",
+    "status": "done",
+    "priority": "low",
+    "assigneeId": "user-4",
+    "createdById": "user-1",
+    "createdAt": "2024-05-15T14:45:00Z",
+    "dueDate": "2024-06-30T23:59:59Z",
+    "estimatedHours": 12,
+    "actualHours": 15,
+    "dependsOn": [
+      "task-29"
+    ],
+    "labels": [
+      "email",
+      "notifications",
+      "automation"
+    ]
+  }
+]

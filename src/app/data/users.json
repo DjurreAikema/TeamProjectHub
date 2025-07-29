@@ -1,0 +1,119 @@
+[
+  {
+    "id": "user-1",
+    "email": "sarah.pm@company.com",
+    "name": "Sarah Johnson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=sarah",
+    "role": "pm",
+    "createdAt": "2024-01-15T10:00:00Z",
+    "lastActive": "2024-07-25T14:30:00Z"
+  },
+  {
+    "id": "user-2",
+    "email": "mike.dev@company.com",
+    "name": "Mike Chen",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=mike",
+    "role": "developer",
+    "createdAt": "2023-08-22T09:15:00Z",
+    "lastActive": "2024-07-29T11:45:00Z"
+  },
+  {
+    "id": "user-3",
+    "email": "alex.admin@company.com",
+    "name": "Alex Rodriguez",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=alex",
+    "role": "admin",
+    "createdAt": "2023-03-10T14:20:00Z",
+    "lastActive": "2024-07-28T16:22:00Z"
+  },
+  {
+    "id": "user-4",
+    "email": "emily.dev@company.com",
+    "name": "Emily Watson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=emily",
+    "role": "developer",
+    "createdAt": "2023-11-05T11:30:00Z",
+    "lastActive": "2024-07-26T09:18:00Z"
+  },
+  {
+    "id": "user-5",
+    "email": "david.viewer@company.com",
+    "name": "David Park",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=david",
+    "role": "viewer",
+    "createdAt": "2024-02-08T13:45:00Z",
+    "lastActive": "2024-07-20T15:30:00Z"
+  },
+  {
+    "id": "user-6",
+    "email": "lisa.dev@company.com",
+    "name": "Lisa Thompson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=lisa",
+    "role": "developer",
+    "createdAt": "2023-06-18T08:00:00Z",
+    "lastActive": "2024-07-29T10:15:00Z"
+  },
+  {
+    "id": "user-7",
+    "email": "james.pm@company.com",
+    "name": "James Wilson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=james",
+    "role": "pm",
+    "createdAt": "2023-09-12T15:10:00Z",
+    "lastActive": "2024-07-27T13:50:00Z"
+  },
+  {
+    "id": "user-8",
+    "email": "maria.dev@company.com",
+    "name": "Maria Garcia",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=maria",
+    "role": "developer",
+    "createdAt": "2024-01-30T12:20:00Z",
+    "lastActive": "2024-07-29T14:05:00Z"
+  },
+  {
+    "id": "user-9",
+    "email": "tom.viewer@company.com",
+    "name": "Tom Anderson",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=tom",
+    "role": "viewer",
+    "createdAt": "2024-03-22T10:45:00Z",
+    "lastActive": "2024-07-15T12:30:00Z"
+  },
+  {
+    "id": "user-10",
+    "email": "anna.dev@company.com",
+    "name": "Anna Kowalski",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=anna",
+    "role": "developer",
+    "createdAt": "2023-07-03T16:30:00Z",
+    "lastActive": "2024-07-28T17:20:00Z"
+  },
+  {
+    "id": "user-11",
+    "email": "chris.viewer@company.com",
+    "name": "Chris Lee",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=chris",
+    "role": "viewer",
+    "createdAt": "2024-04-10T09:25:00Z",
+    "lastActive": "2024-07-18T11:10:00Z"
+  },
+  {
+    "id": "user-12",
+    "email": "rachel.dev@company.com",
+    "name": "Rachel Brown",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=rachel",
+    "role": "developer",
+    "createdAt": "2023-10-28T14:15:00Z",
+    "lastActive": "2024-07-29T08:45:00Z"
+  },
+  {
+    "id": "user-13",
+    "email": "kevin.dev@company.com",
+    "name": "Kevin Murphy",
+    "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=kevin",
+    "role": "developer",
+    "createdAt": "2024-05-14T11:00:00Z",
+    "lastActive": "2024-07-12T14:25:00Z"
+  }
+]

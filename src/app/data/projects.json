@@ -1,0 +1,99 @@
+[
+  {
+    "id": "proj-1",
+    "name": "Customer Portal Redesign",
+    "description": "Complete overhaul of the customer-facing portal with modern UI/UX and improved performance",
+    "status": "active",
+    "ownerId": "user-1",
+    "memberIds": ["user-2", "user-4", "user-6", "user-8"],
+    "createdAt": "2024-03-15T09:00:00Z",
+    "dueDate": "2024-08-30T23:59:59Z",
+    "progress": 67
+  },
+  {
+    "id": "proj-2",
+    "name": "Mobile Banking App",
+    "description": "Native iOS and Android app for secure mobile banking transactions",
+    "status": "completed",
+    "ownerId": "user-7",
+    "memberIds": ["user-6", "user-10", "user-12"],
+    "createdAt": "2023-10-05T10:30:00Z",
+    "dueDate": "2024-06-15T23:59:59Z",
+    "progress": 100
+  },
+  {
+    "id": "proj-3",
+    "name": "Internal Dashboard Analytics",
+    "description": "Real-time analytics dashboard for internal team performance metrics",
+    "status": "active",
+    "ownerId": "user-1",
+    "memberIds": ["user-2", "user-8"],
+    "createdAt": "2024-05-20T14:15:00Z",
+    "dueDate": "2024-09-15T23:59:59Z",
+    "progress": 34
+  },
+  {
+    "id": "proj-4",
+    "name": "E-commerce Platform Migration",
+    "description": "Migration from legacy system to modern microservices architecture",
+    "status": "on-hold",
+    "ownerId": "user-7",
+    "memberIds": ["user-4", "user-10", "user-12", "user-6"],
+    "createdAt": "2024-01-10T11:45:00Z",
+    "progress": 45
+  },
+  {
+    "id": "proj-5",
+    "name": "Inventory Management System",
+    "description": "Web-based inventory tracking and management system for warehouse operations",
+    "status": "completed",
+    "ownerId": "user-1",
+    "memberIds": ["user-2", "user-4", "user-8"],
+    "createdAt": "2023-11-12T08:20:00Z",
+    "dueDate": "2024-05-20T23:59:59Z",
+    "progress": 100
+  },
+  {
+    "id": "proj-6",
+    "name": "Social Media Integration API",
+    "description": "REST API for integrating with major social media platforms",
+    "status": "active",
+    "ownerId": "user-7",
+    "memberIds": ["user-6", "user-10"],
+    "createdAt": "2024-04-08T13:30:00Z",
+    "dueDate": "2024-10-01T23:59:59Z",
+    "progress": 78
+  },
+  {
+    "id": "proj-7",
+    "name": "HR Management Mobile App",
+    "description": "Cross-platform mobile app for employee self-service and HR workflows",
+    "status": "active",
+    "ownerId": "user-1",
+    "memberIds": ["user-12", "user-8", "user-4"],
+    "createdAt": "2024-06-01T09:45:00Z",
+    "progress": 23
+  },
+  {
+    "id": "proj-8",
+    "name": "Legacy System Modernization",
+    "description": "Modernizing critical business systems with cloud-native architecture",
+    "status": "on-hold",
+    "ownerId": "user-7",
+    "memberIds": ["user-2", "user-6", "user-10", "user-12"],
+    "createdAt": "2023-12-18T16:00:00Z",
+    "dueDate": "2024-12-31T23:59:59Z",
+    "progress": 28
+  },
+  {
+    "id": "proj-9",
+    "name": "Customer Feedback Web Portal",
+    "description": "Interactive web portal for collecting and analyzing customer feedback",
+    "status": "completed",
+    "ownerId": "user-1",
+    "memberIds": ["user-4", "user-8"],
+    "createdAt": "2024-01-25T12:10:00Z",
+    "dueDate": "2024-07-10T23:59:59Z",
+    "progress": 100
+  }
+]
