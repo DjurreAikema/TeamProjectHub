@@ -196,16 +196,19 @@ import {UserModel} from '../../../core/models';
   `]
 })
 export class LoginDialogComponent {
-
+  // --- Dependencies
   authService = inject(AuthService);
 
+  // --- Properties
   loginUsers = signal<UserModel[]>([]);
   selectedUserId = signal<string | null>(null);
 
+  // --- Constructor
   constructor() {
     this.loginUsers.set(this.authService.getLoginUsers());
   }
 
+  // --- Methods
   selectUser(userId: string): void {
     if (this.authService.isLoading()) return;
 
