@@ -1,16 +1,32 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, inject, OnInit, signal} from '@angular/core';
+import {Router, RouterOutlet} from '@angular/router';
+import {AuthService} from './features/auth/data-access/auth.service';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
   template: `
-    <h1>Welcome to {{ title() }}!</h1>
-
-    <router-outlet />
+    <router-outlet/>
   `,
-  styles: [],
+  styles: [`
+    :host {
+      display: block;
+      width: 100%;
+      height: 100dvh;
+    }
+  `],
 })
-export class App {
-  protected readonly title = signal('team-project-hub');
+export class App implements OnInit {
+  // --- Dependencies
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  // --- Methods
+  ngOnInit() {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/auth/login']);
+    }
+  }
 }

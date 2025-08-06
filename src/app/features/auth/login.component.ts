@@ -1,6 +1,6 @@
 import {Component, effect, inject} from '@angular/core';
-import {LoginDialogComponent} from './login-dialog.component';
-import {AuthService} from '../data-access/auth.service';
+import {LoginDialogComponent} from './ui/login-dialog.component';
+import {AuthService} from './data-access/auth.service';
 import {Router} from '@angular/router';
 
 @Component({

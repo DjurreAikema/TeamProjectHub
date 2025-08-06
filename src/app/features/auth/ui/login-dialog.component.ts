@@ -216,6 +216,7 @@ export class LoginDialogComponent {
     this.authService.login(userId);
   }
 
+  // TODO Re-used method
   getRoleDisplay(role: string): string {
     const roleMap = {
       'admin': 'Administrator',
