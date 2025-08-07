@@ -8,45 +8,45 @@ import {UserModel} from '../../../core/models';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="login-overlay">
-      <div class="login-dialog">
+      <div class="login-overlay">
+          <div class="login-dialog">
 
-        <div class="dialog-header">
-          <h2>Welcome to Team Project Management Hub</h2>
-          <p>Select a user to login as:</p>
-        </div>
-
-        <div class="user-cards">
-          @for (user of loginUsers(); track user.id) {
-            <div class="user-card"
-                 [class.loading]="authService.isLoading() && selectedUserId() === user.id"
-                 (click)="selectUser(user.id)">
-
-              <div class="user-avatar">
-                <img [src]="user.avatar" [alt]="user.name + ' avatar'"/>
+              <div class="dialog-header">
+                  <h2>Welcome to Team Project Management Hub</h2>
+                  <p>Select a user to login as:</p>
               </div>
 
-              <div class="user-info">
-                <h3>{{ user.name }}</h3>
-                <p class="user-role">{{ getRoleDisplay(user.role) }}</p>
-                <p class="user-email">{{ user.email }}</p>
+              <div class="user-cards">
+                  @for (user of quickLoginUsers(); track user.id) {
+                      <div class="user-card"
+                           [class.loading]="authService.isLoading()"
+                           (click)="loginWithUserId(user.id)">
+
+                          <div class="user-avatar">
+                              <img [src]="user.avatar" [alt]="user.name + ' avatar'"/>
+                          </div>
+
+                          <div class="user-info">
+                              <h3>{{ user.name }}</h3>
+                              <p class="user-role">{{ convertUserRoleToDescriptiveName(user.role) }}</p>
+                              <p class="user-email">{{ user.email }}</p>
+                          </div>
+
+                          @if (authService.isLoading()) {
+                              .loading-spinner();
+                          }
+                      </div>
+                  }
               </div>
 
-              @if (authService.isLoading() && selectedUserId() === user.id) {
-                .loading-spinner();
+              @if (authService.error()) {
+                  <div class="error-message">
+                      {{ authService.error() }}
+                  </div>
               }
-            </div>
-          }
-        </div>
 
-        @if (authService.error()) {
-          <div class="error-message">
-            {{ authService.error() }}
           </div>
-        }
-
       </div>
-    </div>
   `,
   styles: [`
     .login-overlay {
@@ -200,24 +200,21 @@ export class LoginDialogComponent {
   authService = inject(AuthService);
 
   // --- Properties
-  loginUsers = signal<UserModel[]>([]);
-  selectedUserId = signal<string | null>(null);
+  quickLoginUsers = signal<UserModel[]>([]);
 
   // --- Constructor
   constructor() {
-    this.loginUsers.set(this.authService.getLoginUsers());
+    this.quickLoginUsers.set(this.authService.getLoginUsers());
   }
 
   // --- Methods
-  selectUser(userId: string): void {
+  loginWithUserId(userId: string): void {
     if (this.authService.isLoading()) return;
-
-    this.selectedUserId.set(userId);
     this.authService.login(userId);
   }
 
   // TODO Re-used method
-  getRoleDisplay(role: string): string {
+  convertUserRoleToDescriptiveName(role: string): string {
     const roleMap = {
       'admin': 'Administrator',
       'pm': 'Project Manager',
