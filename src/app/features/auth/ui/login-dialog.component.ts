@@ -204,7 +204,7 @@ export class LoginDialogComponent {
 
   // --- Constructor
   constructor() {
-    this.quickLoginUsers.set(this.authService.getLoginUsers());
+    this.quickLoginUsers.set(this.authService.getUsersForQuickLogin());
   }
 
   // --- Methods

@@ -17,14 +17,14 @@ interface AuthState {
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly STORAGE_KEY = 'tpmh_auth_user';
+  private readonly LOCAL_STORAGE_KEY = 'tpmh_auth_user';
 
   // --- Dependencies
   private router: Router = inject(Router);
 
   // --- State
   private state: WritableSignal<AuthState> = signal<AuthState>({
-    user: this.loadUserFromStorage(),
+    user: this.loadUserFromLocalStorage(),
     isLoading: false,
     error: null,
   });
@@ -72,7 +72,7 @@ export class AuthService {
           error: null
         })),
         tap(() => {
-          localStorage.removeItem(this.STORAGE_KEY);
+          localStorage.removeItem(this.LOCAL_STORAGE_KEY);
           this.router.navigate(['/auth/login']);
         })
       ),
@@ -89,7 +89,7 @@ export class AuthService {
   }
 
   // --- Public methods
-  getLoginUsers(): UserModel[] {
+  getUsersForQuickLogin(): UserModel[] {
     const users = usersData as UserModel[];
 
     // Get first user of each role
@@ -112,21 +112,21 @@ export class AuthService {
 
   // --- Private methods
   private performLogin(userId: string): Observable<UserModel> {
-    const users = usersData as UserModel[];
-    const user = users.find(u => u.id === userId);
+    const allUsers = usersData as UserModel[];
+    const user = allUsers.find(u => u.id === userId);
 
     if (!user) {
       throw new Error('User not found');
     }
 
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(user));
+    localStorage.setItem(this.LOCAL_STORAGE_KEY, JSON.stringify(user));
     return of(user);
   }
 
-  private loadUserFromStorage(): UserModel | null {
+  private loadUserFromLocalStorage(): UserModel | null {
     try {
-      const stored = localStorage.getItem(this.STORAGE_KEY);
-      return stored ? JSON.parse(stored) : null;
+      const storedUser = localStorage.getItem(this.LOCAL_STORAGE_KEY);
+      return storedUser ? JSON.parse(storedUser) : null;
     } catch {
       return null;
     }
