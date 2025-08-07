@@ -1,12 +1,12 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AuthService} from '../data-access/auth.service';
 import {UserModel} from '../../../core/models';
+import {LoginUserCardComponent} from "./login-user-card.component";
 
 @Component({
   selector: 'app-login-dialog',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, LoginUserCardComponent],
   template: `
       <div class="login-overlay">
           <div class="login-dialog">
@@ -18,30 +18,17 @@ import {UserModel} from '../../../core/models';
 
               <div class="user-cards">
                   @for (user of quickLoginUsers(); track user.id) {
-                      <div class="user-card"
-                           [class.loading]="authService.isLoading()"
-                           (click)="loginWithUserId(user.id)">
-
-                          <div class="user-avatar">
-                              <img [src]="user.avatar" [alt]="user.name + ' avatar'"/>
-                          </div>
-
-                          <div class="user-info">
-                              <h3>{{ user.name }}</h3>
-                              <p class="user-role">{{ convertUserRoleToDescriptiveName(user.role) }}</p>
-                              <p class="user-email">{{ user.email }}</p>
-                          </div>
-
-                          @if (authService.isLoading()) {
-                              .loading-spinner();
-                          }
-                      </div>
+                      <app-login-user-card
+                              [isLoading]="isLoading()"
+                              [user]="user"
+                              (loginWithUserId)="loginWithUserId.emit($event)"
+                      />
                   }
               </div>
 
-              @if (authService.error()) {
+              @if (authError()) {
                   <div class="error-message">
-                      {{ authService.error() }}
+                      {{ authError() }}
                   </div>
               }
 
@@ -97,75 +84,6 @@ import {UserModel} from '../../../core/models';
       margin-bottom: 1rem;
     }
 
-    .user-card {
-      border: 2px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 1.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
-      position: relative;
-      background: #fafafa;
-    }
-
-    .user-card:hover {
-      border-color: #667eea;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(102, 126, 234, 0.2);
-    }
-
-    .user-card.loading {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
-
-    .user-avatar {
-      margin-bottom: 1rem;
-    }
-
-    .user-avatar img {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #e0e0e0;
-    }
-
-    .user-info h3 {
-      margin: 0 0 0.25rem 0;
-      color: #333;
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-
-    .user-role {
-      margin: 0 0 0.5rem 0;
-      color: #667eea;
-      font-weight: 600;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .user-email {
-      margin: 0;
-      color: #666;
-      font-size: 0.85rem;
-    }
-
-    .loading-spinner {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 24px;
-      border: 2px solid #e0e0e0;
-      border-top: 2px solid #667eea;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-
     .error-message {
       background: #ffebee;
       color: #c62828;
@@ -173,15 +91,6 @@ import {UserModel} from '../../../core/models';
       border-radius: 8px;
       text-align: center;
       border: 1px solid #ffcdd2;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      100% {
-        transform: translate(-50%, -50%) rotate(360deg);
-      }
     }
 
     @media (max-width: 600px) {
@@ -196,31 +105,14 @@ import {UserModel} from '../../../core/models';
   `]
 })
 export class LoginDialogComponent {
-  // --- Dependencies
-  authService = inject(AuthService);
 
-  // --- Properties
-  quickLoginUsers = signal<UserModel[]>([]);
+  // --- Inputs
+  isLoading = input.required<boolean>();
+  quickLoginUsers = input.required<UserModel[]>();
 
-  // --- Constructor
-  constructor() {
-    this.quickLoginUsers.set(this.authService.getUsersForQuickLogin());
-  }
+  authError = input<string | null>();
 
-  // --- Methods
-  loginWithUserId(userId: string): void {
-    if (this.authService.isLoading()) return;
-    this.authService.login(userId);
-  }
+  // --- Outputs
+  loginWithUserId = output<string>();
 
-  // TODO Re-used method
-  convertUserRoleToDescriptiveName(role: string): string {
-    const roleMap = {
-      'admin': 'Administrator',
-      'pm': 'Project Manager',
-      'developer': 'Developer',
-      'viewer': 'Viewer',
-    }
-    return roleMap[role as keyof typeof roleMap] || role;
-  }
 }
