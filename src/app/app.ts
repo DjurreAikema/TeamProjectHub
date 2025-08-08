@@ -7,13 +7,11 @@ import {NavbarComponent} from "./shared/components/navbar.component";
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent],
   template: `
-<!--      <div class="main-grid">-->
-          <!--Navbar-->
-          <app-navbar class="navbar"/>
+      <!--Navbar-->
+      <app-navbar class="navbar"/>
 
-          <!--Content-->
-          <router-outlet class="content"/>
-<!--      </div>-->
+      <!--Content-->
+      <router-outlet class="content"/>
   `,
   styles: [`
     :host {
@@ -24,10 +22,10 @@ import {NavbarComponent} from "./shared/components/navbar.component";
       grid-template-areas: 
         "navbar"
         "content";
-      
+
       width: 100%;
       height: 100dvh;
-      
+
       overflow: hidden;
     }
 
@@ -37,9 +35,7 @@ import {NavbarComponent} from "./shared/components/navbar.component";
 
     .content {
       grid-area: content;
-
-      width: 100%;
-      height: 100%;
+      overflow-y: auto;
     }
   `],
 })
