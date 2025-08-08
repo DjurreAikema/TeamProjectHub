@@ -8,25 +8,6 @@ import {AuthService} from '../auth/data-access/auth.service';
   imports: [CommonModule],
   template: `
     <div class="dashboard-container">
-      <header class="dashboard-header">
-
-        <div class="welcome-section">
-          <h1>Welcome back, {{ authService.user()?.name }}!</h1>
-          <p class="role-badge"> {{ getRoleDisplay(authService.user()?.role || '') }}</p>
-        </div>
-
-        <div class="user-actions">
-          <div class="user-info">
-            <img [src]="authService.user()?.avatar" [alt]="authService.user()?.name + ' avatar'" class="user-avatar"/>
-            <span class="user-name">{{ authService.user()?.name }}</span>
-          </div>
-
-          <button class="logout-btn" (click)="logout()">
-            Logout
-          </button>
-        </div>
-
-      </header>
 
       <main class="dashboard-content">
         <div class="dashboard-grid">
@@ -59,72 +40,6 @@ import {AuthService} from '../auth/data-access/auth.service';
     .dashboard-container {
       min-height: 100vh;
       background: #f5f7fa;
-    }
-
-    .dashboard-header {
-      background: white;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .welcome-section h1 {
-      margin: 0 0 0.5rem 0;
-      color: #333;
-      font-size: 1.8rem;
-    }
-
-    .role-badge {
-      background: #667eea;
-      color: white;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .user-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .user-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #e0e0e0;
-    }
-
-    .user-name {
-      font-weight: 600;
-      color: #333;
-    }
-
-    .logout-btn {
-      background: #dc3545;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: background-color 0.2s ease;
-    }
-
-    .logout-btn:hover {
-      background: #c82333;
     }
 
     .dashboard-content {
@@ -164,12 +79,6 @@ import {AuthService} from '../auth/data-access/auth.service';
     }
 
     @media (max-width: 768px) {
-      .dashboard-header {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-
       .dashboard-content {
         padding: 1rem;
       }
@@ -181,22 +90,5 @@ import {AuthService} from '../auth/data-access/auth.service';
   `]
 })
 export default class DashboardComponent {
-  // --- Dependencies
-  authService = inject(AuthService);
 
-  // --- Methods
-  logout(): void {
-    this.authService.logout();
-  }
-
-  // TODO Re-used method
-  getRoleDisplay(role: string): string {
-    const roleMap = {
-      'admin': 'Administrator',
-      'pm': 'Project Manager',
-      'developer': 'Developer',
-      'viewer': 'Viewer',
-    }
-    return roleMap[role as keyof typeof roleMap] || role;
-  }
 }
