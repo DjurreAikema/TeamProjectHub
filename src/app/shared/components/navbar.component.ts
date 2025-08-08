@@ -1,13 +1,17 @@
 import {Component, inject} from '@angular/core';
 import {AuthService} from "../../features/auth/data-access/auth.service";
 import {convertUserRoleToDescriptiveName} from '../../features/auth/helpers/convert-user-role-to-descriptive-name.helper';
+import {UserInfoComponent} from "./user/user-info.component";
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [
+    UserInfoComponent
+  ],
   template: `
-      <header class="dashboard-header">
+      <nav class="navbar">
 
           <div class="welcome-section">
               <h1>Welcome back, {{ authService.user()?.name }}!</h1>
@@ -15,20 +19,20 @@ import {convertUserRoleToDescriptiveName} from '../../features/auth/helpers/conv
           </div>
 
           <div class="user-actions">
-              <div class="user-info">
-                  <img [src]="authService.user()?.avatar" [alt]="authService.user()?.name + ' avatar'" class="user-avatar"/>
-                  <span class="user-name">{{ authService.user()?.name }}</span>
-              </div>
+              <app-user-info [user]="authService.user()"/>
 
               <button class="logout-btn" (click)="logout()">
                   Logout
               </button>
           </div>
 
-      </header>
+      </nav>
   `,
   styles: [`
-    
+    .navbar {
+      width: 100%;
+      height: 100%;
+    }
   `]
 })
 export class NavbarComponent {

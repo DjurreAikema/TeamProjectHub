@@ -31,6 +31,7 @@ import {NavbarComponent} from "./shared/components/navbar.component";
 
     .navbar {
       grid-area: navbar;
+      background-color: lightblue;
     }
 
     .content {
