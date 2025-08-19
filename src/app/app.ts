@@ -1,7 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
-import {AuthService} from './features/auth/data-access/auth.service';
-import {NavbarComponent} from "./shared/components/navbar.component";
+import {AuthService} from '@features/auth/data-access/auth.service';
+import {NavbarComponent} from "@shared/components/navbar.component";
 
 @Component({
   selector: 'app-root',
@@ -31,7 +31,6 @@ import {NavbarComponent} from "./shared/components/navbar.component";
 
     .navbar {
       grid-area: navbar;
-      background-color: lightblue;
     }
 
     .content {
