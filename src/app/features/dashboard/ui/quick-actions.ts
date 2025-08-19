@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-quick-actions',
   imports: [],
   template: `
-    <p>
-      quick-actions works!
-    </p>
+      <p>
+          quick-actions works!
+      </p>
   `,
   styles: ``
 })

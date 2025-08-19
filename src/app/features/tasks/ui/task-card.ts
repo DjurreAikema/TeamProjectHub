@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-task-card',
   imports: [],
   template: `
-    <p>
-      task-card works!
-    </p>
+      <p>
+          task-card works!
+      </p>
   `,
   styles: ``
 })

@@ -1,6 +1,6 @@
 import {Component, input, output} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {UserModel} from '../../../core/models';
+import {UserModel} from '@core/models';
 import {LoginUserCardComponent} from "./login-user-card.component";
 
 @Component({

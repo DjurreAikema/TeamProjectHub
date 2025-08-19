@@ -1,5 +1,5 @@
 import {Component, input, output} from '@angular/core';
-import {UserModel} from "../../../core/models";
+import {UserModel} from "@core/models";
 import {convertUserRoleToDescriptiveName} from '../helpers/index';
 
 @Component({

@@ -2,7 +2,7 @@ import {Component, effect, inject, signal} from '@angular/core';
 import {LoginDialogComponent} from './ui/login-dialog.component';
 import {AuthService} from './data-access/auth.service';
 import {Router} from '@angular/router';
-import {UserModel} from "../../core/models";
+import {UserModel} from "@core/models";
 
 @Component({
   selector: 'app-login',

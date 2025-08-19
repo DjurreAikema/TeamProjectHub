@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-project-form',
   imports: [],
   template: `
-    <p>
-      project-form works!
-    </p>
+      <p>
+          project-form works!
+      </p>
   `,
   styles: ``
 })

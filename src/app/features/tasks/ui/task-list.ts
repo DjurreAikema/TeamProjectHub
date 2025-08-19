@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-task-list',
   imports: [],
   template: `
-    <p>
-      task-list works!
-    </p>
+      <p>
+          task-list works!
+      </p>
   `,
   styles: ``
 })

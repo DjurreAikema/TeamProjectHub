@@ -1,5 +1,5 @@
 import {computed, inject, Injectable, Signal, signal, WritableSignal} from '@angular/core';
-import {UserModel} from '../../../core/models';
+import {UserModel} from '@core/models';
 import {Router} from '@angular/router';
 import {catchError, EMPTY, map, merge, Observable, of, Subject, switchMap, tap} from 'rxjs';
 import {connect} from "ngxtension/connect";

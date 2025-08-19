@@ -1,40 +1,39 @@
-import {Component, inject} from '@angular/core';
+import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {AuthService} from '../auth/data-access/auth.service';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="dashboard-container">
+      <div class="dashboard-container">
 
-      <main class="dashboard-content">
-        <div class="dashboard-grid">
+          <main class="dashboard-content">
+              <div class="dashboard-grid">
 
-          <div class="dashboard-card">
-            <h3>Projects</h3>
-            <p>Manage your teams projects</p>
-          </div>
+                  <div class="dashboard-card">
+                      <h3>Projects</h3>
+                      <p>Manage your teams projects</p>
+                  </div>
 
-          <div class="dashboard-card">
-            <h3>Tasks</h3>
-            <p>Track and update task progress</p>
-          </div>
+                  <div class="dashboard-card">
+                      <h3>Tasks</h3>
+                      <p>Track and update task progress</p>
+                  </div>
 
-          <div class="dashboard-card">
-            <h3>Analytics</h3>
-            <p>View project performance</p>
-          </div>
+                  <div class="dashboard-card">
+                      <h3>Analytics</h3>
+                      <p>View project performance</p>
+                  </div>
 
-          <div class="dashboard-card">
-            <h3>Team</h3>
-            <p>Collaborate with team members</p>
-          </div>
+                  <div class="dashboard-card">
+                      <h3>Team</h3>
+                      <p>Collaborate with team members</p>
+                  </div>
 
-        </div>
-      </main>
-    </div>
+              </div>
+          </main>
+      </div>
   `,
   styles: [`
     .dashboard-container {

@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-grid',
   imports: [],
   template: `
-    <p>
-      dashboard-grid works!
-    </p>
+      <p>
+          dashboard-grid works!
+      </p>
   `,
   styles: ``
 })

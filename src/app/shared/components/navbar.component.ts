@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
-import {AuthService} from "../../features/auth/data-access/auth.service";
-import {convertUserRoleToDescriptiveName} from '../../features/auth/helpers/convert-user-role-to-descriptive-name.helper';
+import {AuthService} from "@features/auth/data-access/auth.service";
+import {convertUserRoleToDescriptiveName} from '@features/auth/helpers';
 import {UserInfoComponent} from "./user/user-info.component";
 
 

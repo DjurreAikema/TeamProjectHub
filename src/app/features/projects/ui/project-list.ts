@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-project-list',
   imports: [],
   template: `
-    <p>
-      project-list works!
-    </p>
+      <p>
+          project-list works!
+      </p>
   `,
   styles: ``
 })
