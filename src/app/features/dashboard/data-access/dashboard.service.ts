@@ -1,5 +1,5 @@
 import {computed, inject, Injectable, Signal, signal, WritableSignal} from '@angular/core';
-import {AddProjectModel, EditProjectModel, ProjectModel, RemoveProjectModel} from "@core/models";
+import {CreateProjectModel, EditProjectModel, ProjectModel, RemoveProjectModel} from "@core/models";
 import {Observable, Subject, take} from "rxjs";
 import {MockProjectApiService} from "@features/projects/data-access/mock-project-api.service";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
@@ -31,7 +31,7 @@ export class DashboardService {
   public error: Signal<string | null> = computed(() => this.state().error);
 
   // --- Sources
-  public add$: Subject<AddProjectModel> = new Subject<AddProjectModel>();
+  public add$: Subject<CreateProjectModel> = new Subject<CreateProjectModel>();
   public edit$: Subject<EditProjectModel> = new Subject<EditProjectModel>();
   public remove$: Subject<RemoveProjectModel> = new Subject<RemoveProjectModel>();
 
@@ -64,7 +64,7 @@ export class DashboardService {
   }
 
   // --- Methods
-  private addIdToProject(project: AddProjectModel) {
+  private addIdToProject(project: CreateProjectModel) {
     return {
       ...project,
       id: this.generateSlug(project.name)

@@ -10,11 +10,11 @@ export interface ProjectModel {
   progress: number; // 0-100
 }
 
-export type AddProjectModel = Omit<ProjectModel, 'id' | 'memberIds' | 'createdAt' | 'progress'>;
+export type CreateProjectModel = Omit<ProjectModel, 'id' | 'memberIds' | 'createdAt' | 'progress'>;
 
 export type EditProjectModel = {
   id: ProjectModel['id'];
-  data: AddProjectModel;
+  data: CreateProjectModel;
 }
 
 export type RemoveProjectModel = ProjectModel['id'];
