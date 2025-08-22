@@ -1,12 +1,12 @@
 import {computed, inject, Injectable, Signal, signal, WritableSignal} from '@angular/core';
-import {CreateProjectModel, EditProjectModel, ProjectModel, RemoveProjectModel} from "@core/models";
-import {Observable, Subject, take} from "rxjs";
-import {MockProjectApiService} from "@features/projects/data-access/mock-project-api.service";
-import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+
+import {ProjectService} from "@features/projects/data-access/project.service";
+import {AuthService} from "@features/auth/data-access/auth.service";
+import {ProjectStatusesEnum} from "@shared/enums";
 
 interface DashboardState {
-  projects: ProjectModel[];
-  loaded: boolean;
+  selectedView: 'grid' | 'list';
+  isLoading: boolean;
   error: string | null;
 }
 
@@ -16,72 +16,67 @@ interface DashboardState {
 export class DashboardService {
 
   // --- Dependencies
-  private projectsApi: MockProjectApiService = inject(MockProjectApiService);
+  private projectsService: ProjectService = inject(ProjectService);
+  private authService: AuthService = inject(AuthService);
 
-  // --- State
+  // --- Dashboard State
   private state: WritableSignal<DashboardState> = signal<DashboardState>({
-    projects: [],
-    loaded: false,
+    selectedView: 'grid',
+    isLoading: false,
     error: null,
   });
 
-  // --- Selectors
-  public projects: Signal<ProjectModel[]> = computed(() => this.state().projects);
-  public loaded: Signal<boolean> = computed(() => this.state().loaded);
+  // --- Dashboard Selectors
+  public selectedView: Signal<'grid' | 'list'> = computed(() => this.state().selectedView);
+  public isLoading: Signal<boolean> = computed(() => this.state().isLoading);
   public error: Signal<string | null> = computed(() => this.state().error);
 
-  // --- Sources
-  public add$: Subject<CreateProjectModel> = new Subject<CreateProjectModel>();
-  public edit$: Subject<EditProjectModel> = new Subject<EditProjectModel>();
-  public remove$: Subject<RemoveProjectModel> = new Subject<RemoveProjectModel>();
+  public recentProjects = computed(() => {
+    const projects = this.projectsService.currentUsersProjects();
+    return projects
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+      .slice(0, 5);
+  });
 
-  private projectsLoaded$: Observable<ProjectModel[]> = this.projectsApi.loadProjects()
+  public urgentProjects = computed(() => {
+    const projects = this.projectsService.currentUsersProjects();
+    const now = new Date();
+    const nextWeek = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-  // --- Reducers
-  constructor() {
-    // projectsLoaded$ reducer
-    this.projectsLoaded$.pipe(takeUntilDestroyed()).subscribe({
-      next: (projects) =>
-        this.state.update((state) => ({
-          ...state,
-          projects,
-          loaded: true
-        })),
-      error: (err) => this.state.update((state) => ({...state, error: err}))
+    return projects.filter(p => {
+      if (!p.dueDate || p.status === ProjectStatusesEnum.completed) return false;
+      const dueDate = new Date(p.dueDate);
+      return dueDate <= nextWeek;
     });
+  });
 
-    // add reducer$
-    this.add$.pipe(takeUntilDestroyed()).subscribe((project) =>
-      this.state.update((state) => ({
-        ...state,
-        // projects: [...state.projects, this.addIdToProject(project)],
-      }))
-    );
+  public dashboardStats: Signal<any> = computed(() => {
+    const projects = this.projectsService.currentUsersProjects();
+    const user = this.authService.user();
 
-    // edit$ reducer
+    if (!user || !projects) {
+      return {
+        totalProjects: 0,
+        activeProjects: 0,
+        completedProjects: 0,
+        onHoldProjects: 0,
+        averageProgress: 0
+      };
+    }
 
-    // remove$ reducer
-  }
+    const activeProjects = projects.filter(p => p.status === ProjectStatusesEnum.active);
+    const completedProjects = projects.filter(p => p.status === ProjectStatusesEnum.completed);
+    const onHoldProjects = projects.filter(p => p.status === ProjectStatusesEnum.onHold);
 
-  // --- Methods
-  private addIdToProject(project: CreateProjectModel) {
+    const totalProgress = projects.reduce((sum, p) => sum + p.progress, 0);
+    const averageProgress = projects.length > 0 ? Math.round(totalProgress / projects.length) : 0;
+
     return {
-      ...project,
-      id: this.generateSlug(project.name)
-    };
-  }
-
-  private generateSlug(name: string): string {
-    let slug = name.toLowerCase().replace(/\s+/g, '-');
-
-    // Check if the slug already exists
-    const matchingSlugs = this.projects().find(
-      (project) => project.id === slug
-    );
-
-    // If the name is already being used, add a string to make the slug unique
-    if (matchingSlugs) slug = slug + Date.now().toString();
-
-    return slug;
-  }
+      totalProjects: projects.length,
+      activeProjects: activeProjects.length,
+      completedProjects: completedProjects.length,
+      onHoldProjects: onHoldProjects.length,
+      averageProgress
+    }
+  });
 }
