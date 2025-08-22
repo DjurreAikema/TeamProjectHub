@@ -35,7 +35,7 @@ export class AuthService {
   isLoading: Signal<boolean> = computed(() => this.state().isLoading);
   isAuthenticated: Signal<boolean> = computed(() => !!this.state().user);
 
-  // --- sources
+  // --- Sources
   login$: Subject<string> = new Subject<string>();
   logout$: Subject<void> = new Subject<void>();
   error$: Subject<string> = new Subject<string>();

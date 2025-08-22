@@ -9,3 +9,12 @@ export interface ProjectModel {
   dueDate?: string;
   progress: number; // 0-100
 }
+
+export type AddProjectModel = Omit<ProjectModel, 'id' | 'memberIds' | 'createdAt' | 'progress'>;
+
+export type EditProjectModel = {
+  id: ProjectModel['id'];
+  data: AddProjectModel;
+}
+
+export type RemoveProjectModel = ProjectModel['id'];

@@ -12,4 +12,9 @@ import {Component} from '@angular/core';
 })
 export class ProjectCard {
 
+  // --- Inputs
+
+
+  // --- Outputs
+
 }
