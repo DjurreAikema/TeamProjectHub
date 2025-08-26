@@ -1,39 +1,57 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {ProjectList} from "@features/projects/ui/project-list.component";
+import {ProjectService} from "@features/projects/data-access/project.service";
+import {DashboardService} from "@features/dashboard/data-access/dashboard.service";
+import {AuthService} from "@features/auth/data-access/auth.service";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProjectList],
   template: `
-      <div class="dashboard-container">
+      <app-project-list
+              [projects]="projectService.currentUsersProjects()"
+              [viewMode]="dashboardService.selectedView()"
+              [isLoading]="projectService.isLoading()"
+              [currentUser]="authService.user()"
+      />
+      
+<!--      <div class="dashboard-container">-->
 
-          <main class="dashboard-content">
-              <div class="dashboard-grid">
+<!--          <main class="dashboard-content">-->
+<!--              <div class="dashboard-grid">-->
 
-                  <div class="dashboard-card">
-                      <h3>Projects</h3>
-                      <p>Manage your teams projects</p>
-                  </div>
+<!--                  <div class="dashboard-card">-->
+<!--                      <h3>Projects</h3>-->
+<!--                      <p>Manage your teams projects</p>-->
+<!--                  </div>-->
 
-                  <div class="dashboard-card">
-                      <h3>Tasks</h3>
-                      <p>Track and update task progress</p>
-                  </div>
+<!--                  <div class="dashboard-card">-->
+<!--                      <h3>Tasks</h3>-->
+<!--                      <p>Track and update task progress</p>-->
+<!--                  </div>-->
 
-                  <div class="dashboard-card">
-                      <h3>Analytics</h3>
-                      <p>View project performance</p>
-                  </div>
+<!--                  <div class="dashboard-card">-->
+<!--                      <h3>Analytics</h3>-->
+<!--                      <p>View project performance</p>-->
+<!--                  </div>-->
 
-                  <div class="dashboard-card">
-                      <h3>Team</h3>
-                      <p>Collaborate with team members</p>
-                  </div>
+<!--                  <div class="dashboard-card">-->
+<!--                      <h3>Team</h3>-->
+<!--                      <p>Collaborate with team members</p>-->
+<!--                  </div>-->
 
-              </div>
-          </main>
-      </div>
+<!--                  <app-project-list-->
+<!--                          [projects]="projectService.currentUsersProjects()"-->
+<!--                          [viewMode]="dashboardService.selectedView()"-->
+<!--                          [isLoading]="projectService.isLoading()"-->
+<!--                          [currentUser]="authService.user()"-->
+<!--                  />-->
+
+<!--              </div>-->
+<!--          </main>-->
+<!--      </div>-->
   `,
   styles: [`
     .dashboard-container {
@@ -89,5 +107,10 @@ import {CommonModule} from '@angular/common';
   `]
 })
 export default class DashboardComponent {
+
+  // --- Dependencies
+  projectService: ProjectService = inject(ProjectService);
+  dashboardService: DashboardService = inject(DashboardService);
+  authService: AuthService = inject(AuthService);
 
 }

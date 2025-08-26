@@ -21,7 +21,7 @@ export class DashboardService {
 
   // --- Dashboard State
   private state: WritableSignal<DashboardState> = signal<DashboardState>({
-    selectedView: 'grid',
+    selectedView: 'list',
     isLoading: false,
     error: null,
   });
