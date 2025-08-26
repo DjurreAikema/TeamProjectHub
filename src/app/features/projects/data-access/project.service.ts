@@ -8,7 +8,6 @@ import {connect} from "ngxtension/connect";
 
 interface ProjectState {
   projects: ProjectModel[];
-  loaded: boolean;
   error: string | null;
   isLoading: boolean;
 }
@@ -25,14 +24,12 @@ export class ProjectService {
   // --- Project State
   private state: WritableSignal<ProjectState> = signal<ProjectState>({
     projects: [],
-    loaded: false,
     error: null,
     isLoading: false
   });
 
   // --- Project Selectors
   projects: Signal<ProjectModel[]> = computed(() => this.state().projects);
-  loaded: Signal<boolean> = computed(() => this.state().loaded);
   error: Signal<string | null> = computed(() => this.state().error);
   isLoading: Signal<boolean> = computed(() => this.state().isLoading);
 
@@ -107,7 +104,6 @@ export class ProjectService {
       this.projectsLoaded$.pipe(
         map((projects) => ({
           projects,
-          loaded: true,
           isLoading: false,
           error: null
         }))
